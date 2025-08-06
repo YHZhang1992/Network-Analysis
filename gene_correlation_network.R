@@ -29,7 +29,7 @@ text(sft$fitIndices[, 1], -sign(sft$fitIndices[, 3]) * sft$fitIndices[, 2],
      labels = powers, col = "red")
 abline(h = 0.90, col = "blue")  # recommended threshold
 
-softPower <- 6  # choose based on previous step
+softPower <- min(sft$fitIndices[sft$fitIndices$SFT.R.sq >= 0.90,]$Power)  # choose based on previous step
 adjacency <- adjacency(datExpr0, power = softPower)
 
 # Turn adjacency into topological overlap matrix (TOM)
